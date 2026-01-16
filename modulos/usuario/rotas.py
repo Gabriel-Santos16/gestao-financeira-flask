@@ -107,6 +107,3 @@ def editar_categoria(id):
     return render_template("form_categoria.html", form=form,)
 
 
-@user.route('/teste')
-def teste():
-    return "teste"
