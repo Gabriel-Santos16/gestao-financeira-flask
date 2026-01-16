@@ -1,2 +1,2 @@
 # gestao-financeira-flask
-Site para organizar finanças 
+Site simples feito com flask para organizar finanças 
