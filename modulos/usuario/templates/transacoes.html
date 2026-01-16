@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %} Transacoes {% endblock %}
+
+
+{% block conteudo %}
+
+<header>
+	<a href="{{url_for('usuariobp.home')}}">Inicio</a>
+	<a href="{{url_for('usuariobp.add_transacao')}}">Nova transacao</a>		
+</header>
+<main>
+	<div class="bloco-tabelas">
+		<div>
+			<table>
+				<thead>
+					<tr>
+						<th colspan="5">Receitas</th>
+					</tr>
+					<tr>
+						<th>descricao</th>
+						<th>valor</th>
+						<th>categoria</th>
+						<th>data</th>
+						<th>ações</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for transacao in usuario.transacoes %}
+						{% if transacao.tipo == 'receita'%}
+							<tr>
+								<td>{{transacao.descricao}}</td> 
+								<td>{{transacao.valor}}</td>
+								<td>{{transacao.categoria}}</td>
+								<td>{{transacao.data}}</td>
+								<td>
+									<button c-delete="{{url_for('usuariobp.excluir', objeto='transacao', id=transacao.id)}}" c-remove-closest="tr">
+										excluir
+									</button>
+									<button onclick=window.location.href="{{url_for('usuariobp.editar_transacao', id=transacao.id)}}">
+										editar
+									</button>
+								</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<div>
+			<table>
+				<thead>
+					<tr>
+						<th colspan="5">Despesas</th>
+					</tr>
+					<tr>
+						<th>descricao</th>
+						<th>valor</th>
+						<th>categoria</th>
+						<th>data</th>
+						<th>ações</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for transacao in usuario.transacoes %}
+						{% if transacao.tipo == 'despesa'%}
+							<tr>
+								<td>{{transacao.descricao}}</td> 
+								<td>{{transacao.valor}}</td>
+								<td>{{transacao.categoria}}</td>
+								<td>{{transacao.data}}</td>
+								<td>
+									<button c-delete="{{url_for('usuariobp.excluir', objeto='transacao', id=transacao.id)}}" c-remove-closest="tr">
+										excluir
+									</button>
+									<button onclick=window.location.href="{{url_for('usuariobp.editar_transacao', id=transacao.id)}}">
+										editar
+									</button>
+								</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</main>
+<script src="{{url_for('usuariobp.static', filename='JS/cru.js')}}"></script>
+
+{% endblock %}

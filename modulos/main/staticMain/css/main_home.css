@@ -1,0 +1,83 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* FUNDO */
+body {
+    background-color: #f4f6f8;
+    color: #333;
+}
+
+/* HEADER */
+header {
+    background-color: #ffffff;
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+header a {
+    text-decoration: none;
+    color: #4a6fa5;
+    font-weight: 500;
+    margin-left: 16px;
+}
+
+header a:hover {
+    color: #2f4f7f;
+}
+
+/* MAIN */
+main {
+    padding: 32px;
+}
+
+/* TÍTULO PRINCIPAL */
+main h1 {
+    margin-bottom: 24px;
+    color: #3b4a5a;
+    font-size: 1.8rem;
+}
+
+/* SEÇÕES */
+main section,
+main div {
+    background-color: #ffffff;
+    padding: 24px;
+    margin-bottom: 24px;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* SUBTÍTULOS */
+main h2 {
+    margin-bottom: 16px;
+    color: #4a6fa5;
+    font-size: 1.2rem;
+}
+
+/* LINKS DE AÇÃO */
+main a {
+    display: inline-block;
+    margin-top: 12px;
+    color: #4a6fa5;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+main a:hover {
+    color: #2f4f7f;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    main {
+        padding: 16px;
+    }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		{% if conta %} <title>Logar</title> {%else%} <title>Cadastrar</title> {%endif%}	
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+		<link rel="stylesheet" href="{{url_for('authbp.static', filename='CSS/form_logar_cadastrar.css') }}">
+	</head>
+	<body>
+		<header>
+			{% if conta%}
+				<a href="{{url_for('authbp.cadastrar')}}">Não tem um conta?</a>
+			{% else %}
+				<a href="{{url_for('authbp.login')}}">Logar-se</a>
+			{% endif %}
+		</header>
+		<main>
+			{% if conta%}
+				<h1>Logar</h1>
+			{% else %}
+				<h1>Cadastrar</h1>
+			{% endif %}
+			<div class="bloco-formulario">
+				<form method="POST">
+					{{ form.csrf_token() }}
+					
+					{{form.login.label()}}
+					{{form.login()}}
+					
+					{{form.senha.label()}}
+					{{form.senha()}}
+					 
+					{{form.enviar()}}
+				</form>
+			</div>
+		
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					<p style="color:red;"> {{messages[0]}} </p>
+				{% endif %}
+			{% endwith %}
+		</main>
+	</body>
+	
+</html>

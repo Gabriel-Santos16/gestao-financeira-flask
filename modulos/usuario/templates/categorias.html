@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %} Categorias {% endblock %}
+
+
+{% block conteudo %}
+<header>
+	<a href="{{url_for('usuariobp.home')}}">Inicio</a>
+	<a href="{{url_for('usuariobp.add_categoria')}}">Nova categoria</a>		
+</header>
+<main>
+	<div class="bloco-titulo">	
+		<h2>Suas categorias</h2>
+	</div>	
+	<div class="bloco-tabelas">	
+		<table>
+			<thead>
+				<tr>
+					<th colspan="2">Receitas</th>
+				</tr>
+				<tr>
+					<th>nome</th>
+					<th>ação</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for cat in categorias %}
+					{%if cat.tipo=='receita'%}
+						<tr>
+							<td>{{cat.nome}}</td>
+							<td>
+								<button onclick=window.location.href="{{url_for('usuariobp.editar_categoria', id=cat.id)}}">
+									editar
+								</button>
+								<button c-delete="{{url_for('usuariobp.excluir', objeto='categoria', id=cat.id)}}" c-remove-closest="tr">
+									excluir
+								</button>
+							</td>
+						</tr>
+					{% endif %}
+				{% endfor %}
+			</tbody>
+		</table>
+		<table>
+			<thead>
+				<tr>
+					<th colspan="2">Despesas</th>
+				</tr>
+				<tr>
+					<th>nome</th>
+					<th>ação</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for cat in categorias %}
+					{%if cat.tipo=='despesa'%}
+						<tr>
+							<td>{{cat.nome}}</td>
+							<td>
+								<button onclick=window.location.href="{{url_for('usuariobp.editar_categoria', id=cat.id)}}">
+									editar
+								</button>
+								<button c-delete="{{url_for('usuariobp.excluir', objeto='categoria', id=cat.id)}}" c-remove-closest="tr">
+									excluir
+								</button>
+							</td>
+						</tr>
+					{% endif %}
+				{% endfor %}
+			</tbody>
+		</table>	
+	</div>
+</main>
+<script src="{{url_for('usuariobp.static', filename='JS/cru.js')}}"></script>
+{% endblock %}
+
+
+
+
+
+

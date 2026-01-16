@@ -1,0 +1,187 @@
+/* ==================================================
+   RESET GLOBAL
+================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* ==================================================
+   BASE
+================================================== */
+body {
+    background-color: #f4f6f8;
+    color: #333;
+}
+
+a {
+    color: #4a6fa5;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #2f4f7f;
+}
+
+/* ==================================================
+   HEADER
+================================================== */
+header {
+    background-color: #ffffff;
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+header nav a {
+    margin-left: 16px;
+    font-weight: 500;
+}
+
+/* ==================================================
+   MAIN / LAYOUT
+================================================== */
+main {
+    padding: 32px;
+}
+
+main h1 {
+    margin-bottom: 24px;
+    color: #3b4a5a;
+    font-size: 1.8rem;
+}
+
+main h2 {
+    margin-bottom: 16px;
+    color: #4a6fa5;
+    font-size: 1.2rem;
+}
+
+/* ==================================================
+   CONTAINERS / CARDS
+================================================== */
+section,
+.card {
+    background-color: #ffffff;
+    padding: 24px;
+    margin-bottom: 24px;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* ==================================================
+   BOTÕES
+================================================== */
+button,
+.btn {
+    background-color: #4a6fa5;
+    color: #ffffff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+button:hover,
+.btn:hover {
+    background-color: #2f4f7f;
+}
+
+/* ==================================================
+   FORMULÁRIOS
+================================================== */
+form {
+    max-width: 500px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #4a6fa5;
+}
+
+.bloco-formulario {
+	display: flex;
+	justify-content: center;
+}
+
+/* ==================================================
+   TABELAS (TRANSAÇÕES)
+================================================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f2f5;
+    color: #3b4a5a;
+}
+
+tr:hover {
+    background-color: #f9fafb;
+}
+
+/* ==================================================
+   LISTAS (CATEGORIAS)
+================================================== */
+ul {
+    list-style: none;
+}
+
+li {
+    background-color: #ffffff;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bloco-tabelas {
+	display: flex;
+	justify-content: space-around;
+}
+
+/* ==================================================
+   RESPONSIVO
+================================================== */
+@media (max-width: 768px) {
+    main {
+        padding: 16px;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 12px;
+    }
+}

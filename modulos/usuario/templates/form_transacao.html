@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %} Transacao {% endblock %}
+
+
+{% block conteudo %}
+
+<header>
+	<a href="{{url_for('usuariobp.home')}}">Visão geral</a> 
+	<a href="{{url_for('usuariobp.categorias')}}">Categorias</a> 
+</header>
+<main>
+	<div class="bloco-formulario">
+		<form method="POST"> 
+				{{form.hidden_tag()}}
+			<div class="mb-3">
+				<h2>Transacao</h2>
+			</div>
+			<div class="mb-3">
+				{{form.tipo.label}}
+				{{form.tipo(onchange="MudarCategorias(this.value)")}}
+			</div>
+			<div class="mb-3">
+				{{form.descricao.label}}
+				{{form.descricao()}}
+			</div>
+			<div class="mb-3">
+				{{form.valor.label}}
+				{{form.valor()}}
+			</div>
+			<div class="mb-3">
+				{{form.categoria.label}}
+				{{form.categoria()}}
+			</div>
+			<div class="mb-3">
+				{{form.data.label}}
+				{{form.data(class="form-control")}}
+			</div>
+				{{form.enviar(class="btn-submit")}}	
+		</form>
+	</div>
+</main>
+
+<script>
+	function MudarCategorias(valor){
+		let SelectCategoria = document.getElementById("categoria");
+		SelectCategoria.innerHTML = "";
+		let Rendas = {{ rendas | tojson }}
+		let Gastos = {{ gastos | tojson }}
+		
+		if (valor == 'despesa'){
+			Gastos.forEach(gasto => {
+				let option = new Option(gasto);
+				SelectCategoria.add(option);
+				});
+		}else{
+			Rendas.forEach(renda => {
+				SelectCategoria.add(new Option(renda, renda))
+				});
+			}}
+	
+	{% if not edit %}
+		let SelectTipo = document.getElementById("tipo");
+		SelectTipo.value = 'receita';
+		MudarCategorias('receita');
+	{% else %}
+		MudarCategorias('{{transacao_selecionada.tipo}}');	
+	{% endif %}
+	
+
+</script>
+{% endblock %}

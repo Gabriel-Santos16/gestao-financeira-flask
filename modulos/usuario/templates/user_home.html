@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %} Visão geral {% endblock %}
+
+
+{% block conteudo %}
+<main>
+	<div class="menu">
+		<p class="card-user">logado como: {{usuario.login}}</p>
+		<h2 class="tit-menu">Menu</h2>
+		<button class="button-menu" onclick=window.location.href="{{url_for('usuariobp.transacoes')}}">Transacoes</button>
+		<button class="button-menu" onclick=window.location.href="{{url_for('usuariobp.add_transacao')}}">nova transacao</button>
+		<button class="button-menu" onclick=window.location.href="{{url_for('usuariobp.categorias')}}">Categorias</button>
+		<button class="button-menu" onclick=window.location.href="{{url_for('usuariobp.add_categoria')}}">nova categoria</button>
+		<button class="button-menu" onclick=window.location.href="{{url_for('authbp.logout')}}">sair da conta</button>
+	</div>
+	<div class="page">
+		<div class="tit-subtit">
+			<h1>Pagina do usuario</h1>
+			<h2>Transacoes</h2><br>
+			<div>
+				<h2 class="tit-tabela">Ultimas transacoes</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>descricao</th>
+							<th>valor</th>
+							<th>categoria</th>
+							<th>data</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for transacao in usuario.transacoes[::-1][:5] %}
+							<tr>
+								<td>{{transacao.descricao}}</td> 
+								<td>{{transacao.valor}}</td>
+								<td>{{transacao.categoria}}</td>
+								<td>{{transacao.data}}</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+	</div>
+</main>
+<script src="{{url_for('usuariobp.static', filename='JS/cru.js')}}"></script>
+{% endblock %}

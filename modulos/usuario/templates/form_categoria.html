@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %} Categorias {% endblock %}
+
+
+{% block conteudo %}
+<header>
+	<a href="{{url_for('usuariobp.categorias')}}">Categorias</a> 
+</header>
+<main>
+	<div class="bloco-formulario">
+		<form class="c-form" method="POST">
+
+		  {{form.hidden_tag()}}
+		  <div class="mb-3">
+			{{form.nome.label(class="form-label")}}
+			{{form.nome()}}
+		  </div>
+		  <div class="mb-3">
+			{{form.tipo.label(class="form-label")}}
+			{{form.tipo()}}
+		  </div>
+		  {{form.salvar()}}
+		</form>
+	</div>
+</main>
+{% endblock %}
