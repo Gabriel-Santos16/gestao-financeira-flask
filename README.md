@@ -10,37 +10,7 @@ Site simples feito com flask para organizar finanças
 - [flask_login](https://pypi.org/project/Flask-Login/)
 
 
-## estrutura do projeto
 
-   gestao-financeira-flask
-    |
-    ├── models/
-    ├── modulos/
-    │ 	├── auth/
-    │ 	├── templates/
-    │ 	│ 	├── static/
-    │ 	│ 	├── auth.py
-    │ 	│ 	└── rotas.py
-    │    	│ 
-    │ 	├── main/
-    │ 	│ 	├── templates/
-    │ 	│ 	├── static/
-    │ 	│ 	├── main.py
-    │ 	│ 	├── formulario.py
-    │ 	│ 	└── rotas.py
-    │       │   
-    │ 	└── user/
-    │  	   ├── templates/
-    │ 	   ├── static/
-    │ 	   ├── user.py
-    │ 	   ├── formulario.py
-    │ 	   └── rotas.py
-    │ 
-    ├── app.py
-    ├── config.p
-    ├── extensions.py
-    ├── requirements.txt
-    └── README.md
 
 
 ## funcionalidades
