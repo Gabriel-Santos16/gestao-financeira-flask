@@ -33,12 +33,12 @@ Site simples feito com flask para organizar finanças
 ## como rodar o projeto localmente 
 
 - Clone o repositório
-	git clone https://github.com/seu-usuario/gestao-financeira-flask.git
+	git clone https://github.com/Gabriel-Santos16/gestao-financeira-flask.git
 - NA pasta do projeto 
 
 	- Crie e ative o ambiente virtual
 		python -m venv .venv
-	 	Windows:
+		Windows:
 			.venv\Scripts\activate
  		Linux/Mac:
 			source .venv/bin/activate
